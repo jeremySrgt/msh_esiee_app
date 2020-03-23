@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'dart:math';
 
 class StoreResult extends ChangeNotifier{
-
-  int _DSIA = 0;
-  int _CYB = 0;
-  int _INFO = 0;
-  int _SEI = 0;
-  int _SE = 0;
-  int _BIO = 0;
-  int _GI = 0;
-  int _ENE = 0;
 
   List<Map<String,dynamic>> _point = [
     {"filliere": "DSIA", "score" : 0},
     {"filliere": "CYB", "score" : 0},
     {"filliere": "SE", "score" : 0},
+    {"filliere": "INFO", "score" : 0},
+    {"filliere": "SEI", "score" : 0},
+    {"filliere": "BIO", "score" : 0},
+    {"filliere": "GI", "score" : 0},
+    {"filliere": "ENE", "score" : 0},
   ];
 
   void addPoint(String filliere){
@@ -34,24 +29,39 @@ class StoreResult extends ChangeNotifier{
     }
 
     if(filliere == "INFO"){
-      _INFO++;
+      _point[3]['score']++;
     }
 
     if(filliere == "SEI"){
-      _SEI++;
+      _point[4]['score']++;
     }
 
     if(filliere == "BIO"){
-      _BIO++;
+      _point[5]['score']++;
     }
 
     if(filliere == "GI"){
-      _GI++;
+      _point[6]['score']++;
     }
 
     if(filliere == "ENE"){
-      _ENE++;
+      _point[7]['score']++;
     }
+
+    notifyListeners();
+  }
+
+  void resetQuizPoint(){
+    _point = [
+      {"filliere": "DSIA", "score" : 0},
+      {"filliere": "CYB", "score" : 0},
+      {"filliere": "SE", "score" : 0},
+      {"filliere": "INFO", "score" : 0},
+      {"filliere": "SEI", "score" : 0},
+      {"filliere": "BIO", "score" : 0},
+      {"filliere": "GI", "score" : 0},
+      {"filliere": "ENE", "score" : 0},
+    ];
 
     notifyListeners();
   }

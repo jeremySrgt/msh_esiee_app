@@ -13,7 +13,20 @@ class Result extends StatelessWidget{
       appBar: AppBar(
         title: Text("Résultats"),
       ),
-      body: Center(child: Text(result.getResult()),),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            Text(result.getResult()),
+            FlatButton(
+              child: Text("Recommencer"),
+              onPressed: (){
+                result.resetQuizPoint();
+                Navigator.pushReplacementNamed(context, '/');
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
