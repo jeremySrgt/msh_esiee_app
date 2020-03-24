@@ -3,9 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'homePage.dart';
 import 'storeResult.dart';
+
 void main() => runApp(new MyApp());
-
-
 
 class MyApp extends StatefulWidget {
   @override
@@ -14,12 +13,9 @@ class MyApp extends StatefulWidget {
   }
 }
 
-
-class _MyAppState extends State<MyApp>{
-
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -28,22 +24,23 @@ class _MyAppState extends State<MyApp>{
     return MultiProvider(
       providers: [
         //Provider(create: (context) => HomePage(),),
-        ChangeNotifierProvider(create: (context) => StoreResult(),),
+        ChangeNotifierProvider(
+          create: (context) => StoreResult(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Quizz Esiee',
         theme: new ThemeData(
-            primaryColor: Colors.green,
-            accentColor: Colors.greenAccent
+          primaryColor: Colors.green,
+          accentColor: Colors.greenAccent,
+          fontFamily: 'Comfortaa',
         ),
         initialRoute: '/',
-        routes:{
+        routes: {
           '/': (BuildContext context) => new HomePage(),
         },
       ),
     );
-
   }
 }
-
