@@ -21,62 +21,58 @@ class _HomePageState extends State<HomePage> {
 
   int _selectedIndex = 0;
 
+//  final Shader linearGradient = LinearGradient(
+//    colors: <Color>[Colors.pink, Colors.deepPurple],
+//  ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+
+  Color gradientHome1 = Color(0xff82ccdd);
+  Color gradientHome2 = Color(0xff0c2461);
+
+  Color gradientDiscover1 = Color(0xfff6b93b);
+  Color gradientDiscover2 = Color(0xffeb2f06);
+
+  Color _currentBGColor1 = Color(0xff82ccdd);
+  Color _currentBGColor2 = Color(0xff0c2461);
+
   @override
   Widget build(BuildContext context) {
     var result = Provider.of<StoreResult>(context);
-    
+    List<Widget> contentList = [quiz(result), discover()];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Quiz Esiee"),
-        elevation: 0.0,
-      ),
+//      appBar: AppBar(
+//        title: Text("Quiz Esiee"),
+//        elevation: 0.0,
+//      ),
       body: Container(
-        color: Theme.of(context).primaryColor,
-        child: Column(
-          children: <Widget>[
-            Swiper(
-              itemBuilder: (BuildContext context, int index) {
-                return sliderCard(result, index);
-              },
-              itemCount: question.length,
-              itemWidth: 400.0,
-              itemHeight: 600.0,
-              layout: SwiperLayout.TINDER,
-              controller: _controller,
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 300),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [_currentBGColor1, _currentBGColor2])),
+//        color: Theme.of(context).primaryColor,
+          child: SafeArea(
+            child: Column(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      "Esiee Quiz",
+                      style: TextStyle(fontSize: 25.0, color: Colors.white),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: contentList[_selectedIndex],
+                ),
+                navigation(),
+              ],
             ),
-            GNav(
-                gap: 8,
-                activeColor: Colors.white,
-                iconSize: 24,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                duration: Duration(milliseconds: 800),
-                tabBackgroundColor: Colors.grey[800],
-                tabs: [
-                  GButton(
-                    icon: Icons.home,
-                    text: 'Home',
-                  ),
-                  GButton(
-                    icon: Icons.favorite_border,
-                    text: 'Likes',
-                  ),
-                  GButton(
-                    icon: Icons.search,
-                    text: 'Search',
-                  ),
-                  GButton(
-                    icon: Icons.verified_user,
-                    text: 'Profile',
-                  ),
-                ],
-                selectedIndex: _selectedIndex,
-                onTabChange: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                }),
-          ],
+          ),
         ),
       ),
     );
@@ -164,6 +160,77 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+    );
+  }
+
+  Widget navigation() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 22),
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(65.0)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 7.0),
+          child: GNav(
+            gap: 8,
+            activeColor: Colors.white,
+            iconSize: 24,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            duration: Duration(milliseconds: 800),
+            tabBackgroundColor: _currentBGColor1,
+            tabs: [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.assignment,
+                text: 'Découvrir',
+              ),
+              GButton(
+                icon: Icons.search,
+                text: 'recherche',
+              ),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              if(index == 0){
+                setState(() {
+                  _currentBGColor1 = gradientHome1;
+                  _currentBGColor2 = gradientHome2;
+                  _selectedIndex = index;
+                });
+              }
+              if(index == 1){
+                setState(() {
+                  _currentBGColor1 = gradientDiscover1;
+                  _currentBGColor2 = gradientDiscover2;
+                  _selectedIndex = index;
+                });
+              }
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget quiz(result) {
+    return Swiper(
+      itemBuilder: (BuildContext context, int index) {
+        return sliderCard(result, index);
+      },
+      itemCount: question.length,
+      itemWidth: 400.0,
+      itemHeight: 600.0,
+      layout: SwiperLayout.TINDER,
+      controller: _controller,
+    );
+  }
+
+  Widget discover() {
+    return Center(
+      child: Text('section decouviri'),
     );
   }
 }
