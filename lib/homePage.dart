@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         child: AnimatedContainer(
           duration: Duration(milliseconds: 300),
+          curve: Curves.easeInCubic,
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topRight,

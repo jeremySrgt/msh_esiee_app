@@ -29,6 +29,14 @@ class QuestionData {
       Question("Tu te considère comme le prochain Tony Stark", "SE"),
       Question("Tu aimerais améliorer le quotidien des gens", "BIO"),
       Question("Tu as déjà construit une mini éolienne", "ENE"),
+      Question("Pour toi être à la maison c'est être en localhost", "CYB"),
+      Question("Le mot machine learning te fait frémir", "DSIA"),
+      Question("Quand on parle de python tu sais que c'est pas du serpent", "INFO"),
+      Question("A la manière de Tore tu controle l'electricité", "SEI"),
+      Question("Excel, tu connais par coeur !", "GI"),
+      Question("Tu aimerais savoir fabriquer un régulateur de vitesse pour ta vieille Twingo", "SE"),
+      Question("Tu trouve ca cool d'analyser des données médicales", "BIO"),
+      Question("Tu suis Greta Thunberg sur les réseaux sociaux", "ENE"),
     ];
 
     return questionList;

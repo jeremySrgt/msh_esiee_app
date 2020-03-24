@@ -10,21 +10,30 @@ class Result extends StatelessWidget{
     var result = Provider.of<StoreResult>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Résultats"),
-      ),
       body: Container(
-        child: Column(
-          children: <Widget>[
-            Text(result.getResult()),
-            FlatButton(
-              child: Text("Recommencer"),
-              onPressed: (){
-                result.resetQuizPoint();
-                Navigator.pushReplacementNamed(context, '/');
-              },
-            ),
-          ],
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topLeft,
+                child: Container(
+                  padding: EdgeInsets.all(15.0),
+                  child: Text(
+                    "Résultat",
+                    style: TextStyle(fontSize: 25.0, color: Colors.black),
+                  ),
+                ),
+              ),
+              Text(result.getResult()),
+              FlatButton(
+                child: Text("Recommencer"),
+                onPressed: (){
+                  result.resetQuizPoint();
+                  Navigator.pushReplacementNamed(context, '/');
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
