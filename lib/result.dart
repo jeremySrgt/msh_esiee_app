@@ -10,63 +10,78 @@ class Result extends StatelessWidget {
     Color gradientHome1 = Color(0xff82ccdd);
     Color gradientHome2 = Color(0xff78e08f);
 
-    Widget textResult() {
-      String filliereResult = '';
+    List<String> processResult() {
+      List<String> listresult = new List(2);
 
       switch (result.getResult()) {
         case 'CYB':
           {
-            filliereResult = 'Cyber sécurité';
+            listresult[0] = 'Cyber sécurité';
+            listresult[1] = './assets/images/cyber.jpg';
           }
           break;
         case 'DSIA':
           {
-            filliereResult = 'Data Science et IA';
+            listresult[0] = 'Data Science et IA';
+            listresult[1] = './assets/images/datascience.jpg';
           }
           break;
         case 'INFO':
           {
-            filliereResult = 'Informatique';
+            listresult[0] = 'Informatique';
+            listresult[1] = './assets/images/INFO.jpg';
           }
           break;
         case 'SE':
           {
-            filliereResult = 'Systèmes embarqués';
+            listresult[0] = 'Systèmes embarqués';
+            listresult[1] = './assets/images/SE.jpg';
           }
           break;
         case 'SEI':
           {
-            filliereResult = 'Système electroniques intélligents';
+            listresult[0] = 'Système electroniques intélligents';
+            listresult[1] = './assets/images/SEI.jpg';
           }
           break;
         case 'ENE':
           {
-            filliereResult = 'Energie';
+            listresult[0] = 'Energie';
+            listresult[1] = './assets/images/ENE.jpg';
           }
           break;
         case 'GI':
           {
-            filliereResult = 'Génie industriel';
+            listresult[0] = 'Génie industriel';
+            listresult[1] = './assets/images/GI.jpg';
           }
           break;
         case 'BIO':
           {
-            filliereResult = 'Bio-technologies et E-santé';
+            listresult[0] = 'Bio-technologies et E-santé';
+            listresult[1] = './assets/images/BIO.jpg';
           }
           break;
         default:
           {
-            filliereResult = 'Toutes les fillière te correspondent 😁';
+            listresult[0] = 'Toutes les fillière te correspondent 😁';
           }
           break;
       }
 
+      return listresult;
+    }
+
+    Widget textResult(){
+      String filliereResult = processResult()[0];
       return Text(
         filliereResult,
         style: TextStyle(
             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
       );
     }
+
+
 
     Widget description() {
       return Container(
@@ -126,7 +141,7 @@ class Result extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.0),
                     child: Image(
                       image:
-                          AssetImage('./assets/images/facebookalgorithm.jpg'),
+                          AssetImage(processResult()[1]),
                       fit: BoxFit.contain,
                     )),
               ),
