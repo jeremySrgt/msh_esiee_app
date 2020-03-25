@@ -32,8 +32,8 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         title: 'Quizz Esiee',
         theme: new ThemeData(
-          primaryColor: Colors.green,
-          accentColor: Colors.greenAccent,
+          primaryColor: Colors.blue,
+          accentColor: Colors.blueAccent,
           fontFamily: 'Comfortaa',
         ),
         initialRoute: '/',

@@ -50,6 +50,32 @@ flutter:
 
   assets:
     - assets/images/dataimage.png
+    - assets/images/webcam.jpg
+    - assets/images/facebookalgorithm.jpg
+    - assets/images/binaire.jpg
+    - assets/images/Arduino_Uno.jpg
+    - assets/images/supplychain.jpg
+    - assets/images/model-s-performance.jpg
+    - assets/images/thomaspesquet.jpg
+    - assets/images/panneauxsolaires.jpg
+    - assets/images/motdepasse.jpg
+    - assets/images/dataviz.jpg
+    - assets/images/algo.jpg
+    - assets/images/souder.jpg
+    - assets/images/opti.jpg
+    - assets/images/tonystark.jpg
+    - assets/images/helping-hand.jpg
+    - assets/images/eolienne.jpg
+    - assets/images/localhost.png
+    - assets/images/ml.jpg
+    - assets/images/python.jpg
+    - assets/images/tore.jpg
+    - assets/images/excel.jpeg
+    - assets/images/regulateur.jpg
+    - assets/images/donnemedicale.jpg
+    - assets/images/ecologie.jpg
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
