@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'storeResult.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'description_fillieres/filliereDescription.dart';
+import 'package:msh_esiee_app/description_fillieres/FilliereClass.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,6 +22,8 @@ class _HomePageState extends State<HomePage> {
   SwiperController _controller = new SwiperController();
 
   int _selectedIndex = 0;
+
+  FilliereClass _filliereClass = new FilliereClass();
 
 //  final Shader linearGradient = LinearGradient(
 //    colors: <Color>[Colors.pink, Colors.deepPurple],
@@ -230,8 +234,72 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget discover() {
-    return Center(
-      child: Text('section decouviri'),
+    return ListView(
+      padding: EdgeInsets.all(12.0),
+
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            title: Text("Biotechnologies et e-santé"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FilliereDescription(filliere: _filliereClass.getInfo(),)),
+              );
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text("Cybersécurité"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){},
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text("Datascience et IA"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){},
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text("Energie"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){},
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text("Génie industriel"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){},
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text("Informatique"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){},
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text("Système embarqués"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){},
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: Text("Système electronique intélligents"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){},
+          ),
+        ),
+      ],
     );
   }
 }
