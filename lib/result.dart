@@ -85,9 +85,10 @@ class Result extends StatelessWidget {
 
     Widget description() {
       return Container(
-        padding: EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 10.0),
+        padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
         child: Text(
-            'Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description'),
+            'La filière forme des ingénieurs capables de répondre aux enjeux liés au changement climatique et à la transition énergétique par une transformation de l’offre (décarbonation du mix énergétique, utilisation accrue des énergies renouvelables…) et une maîtrise de la demande (sobriété et efficacité énergétique) dans leurs dimensions technologique au niveau économique et réglementaire avec une attention particulière aux outils numériques (objets connectés, données…, modélisation, simulation, optimisation) et à leur mise en œuvre à différentes échelles (bâtiment, quartier, ville, etc.).',
+        style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
       );
     }
 
