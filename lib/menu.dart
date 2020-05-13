@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'homePage.dart';
 import 'discover.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Menu extends StatelessWidget {
   Color _currentBGColor1 = Color(0xff82ccdd);
   Color _currentBGColor2 = Color(0xff0c2461);
+
+
+
+  _launchURL() async {
+    var url = "https://www.esiee.fr/";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Non disponible $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,29 +48,66 @@ class Menu extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FlatButton(
-                        child: Text('Jouer !'),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      HomePage()));
-                        },
+                      ButtonTheme(
+                        height: 40,
+                        minWidth: 300,
+                        child: RaisedButton(
+                          child: Text(
+                            'Jouer',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w100),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        HomePage()));
+                          },
+                        ),
                       ),
-                      FlatButton(
-                        child: Text('Découvre les fillières'),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      DiscoverPage()));
-                        },
-                      )
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ButtonTheme(
+                        height: 40,
+                        minWidth: 300,
+                        child: RaisedButton(
+                          child: Text(
+                            'Découvre les fillières',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w100),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        DiscoverPage()));
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
+                FlatButton(
+                  child: Text(
+                    "Visite le site de l'Esiee",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: _launchURL
+                ),
+                SizedBox(
+                  height: 15,
+                )
               ],
             ),
           ),
