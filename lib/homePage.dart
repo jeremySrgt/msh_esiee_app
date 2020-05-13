@@ -4,8 +4,6 @@ import 'result.dart';
 import 'package:provider/provider.dart';
 import 'storeResult.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'description_fillieres/filliereDescription.dart';
 import 'package:msh_esiee_app/description_fillieres/FilliereClass.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,13 +39,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var result = Provider.of<StoreResult>(context);
-    List<Widget> contentList = [quiz(result), discover()];
 
     return Scaffold(
-//      appBar: AppBar(
-//        title: Text("Quiz Esiee"),
-//        elevation: 0.0,
-//      ),
       body: Container(
         child: AnimatedContainer(
           duration: Duration(milliseconds: 300),
@@ -65,16 +58,24 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.topLeft,
                   child: Container(
                     padding: EdgeInsets.all(15.0),
-                    child: Text(
-                      "Esiee Quiz",
-                      style: TextStyle(fontSize: 25.0, color: Colors.white),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          icon: new Icon(Icons.arrow_back_ios,
+                              color: Colors.grey),
+                          onPressed: () => Navigator.of(context).pop(),
+                        ),
+                        Text(
+                          "Esiee Quiz",
+                          style: TextStyle(fontSize: 25.0, color: Colors.white),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 Expanded(
-                  child: contentList[_selectedIndex],
+                  child: quiz(result)
                 ),
-                navigation(),
               ],
             ),
           ),
@@ -168,58 +169,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget navigation() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 22),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(65.0)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 7.0),
-          child: GNav(
-            gap: 8,
-            activeColor: Colors.white,
-            iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            duration: Duration(milliseconds: 800),
-            tabBackgroundColor: _currentBGColor1,
-            tabs: [
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-              ),
-              GButton(
-                icon: Icons.assignment,
-                text: 'Découvrir',
-              ),
-              GButton(
-                icon: Icons.search,
-                text: 'recherche',
-              ),
-            ],
-            selectedIndex: _selectedIndex,
-            onTabChange: (index) {
-              if(index == 0){
-                setState(() {
-                  _currentBGColor1 = gradientHome1;
-                  _currentBGColor2 = gradientHome2;
-                  _selectedIndex = index;
-                });
-              }
-              if(index == 1){
-                setState(() {
-                  _currentBGColor1 = gradientDiscover1;
-                  _currentBGColor2 = gradientDiscover2;
-                  _selectedIndex = index;
-                });
-              }
-            },
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget quiz(result) {
     return Swiper(
       itemBuilder: (BuildContext context, int index) {
@@ -230,76 +179,6 @@ class _HomePageState extends State<HomePage> {
       itemHeight: 600.0,
       layout: SwiperLayout.TINDER,
       controller: _controller,
-    );
-  }
-
-  Widget discover() {
-    return ListView(
-      padding: EdgeInsets.all(12.0),
-
-      children: <Widget>[
-        Card(
-          child: ListTile(
-            title: Text("Biotechnologies et e-santé"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FilliereDescription(filliere: _filliereClass.getInfo(),)),
-              );
-            },
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text("Cybersécurité"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){},
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text("Datascience et IA"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){},
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text("Energie"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){},
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text("Génie industriel"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){},
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text("Informatique"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){},
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text("Système embarqués"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){},
-          ),
-        ),
-        Card(
-          child: ListTile(
-            title: Text("Système electronique intélligents"),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){},
-          ),
-        ),
-      ],
     );
   }
 }

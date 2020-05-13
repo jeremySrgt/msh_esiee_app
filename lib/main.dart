@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'homePage.dart';
 import 'storeResult.dart';
+import 'menu.dart';
 
 void main() => runApp(new MyApp());
 
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         ),
         initialRoute: '/',
         routes: {
-          '/': (BuildContext context) => new HomePage(),
+          '/': (BuildContext context) => new Menu(),
         },
       ),
     );
