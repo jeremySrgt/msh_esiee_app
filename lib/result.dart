@@ -108,19 +108,23 @@ class Result extends StatelessWidget {
 
     Widget description() {
       String filliereResultDescription = processResult()[2];
-        return Container(
-          constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
-          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-          child: Text(
-            filliereResultDescription,
-            style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
+        return Expanded(
+          child: Container(
+            constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
+            padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+            child: SingleChildScrollView(
+              child: Text(
+                filliereResultDescription,
+                style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
+            ),
+          ),
         );
     }
 
     Widget enApprendrePlus() {
       String filliereResultLink = processResult()[3];
       return Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
