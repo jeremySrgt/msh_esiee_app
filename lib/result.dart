@@ -1,65 +1,86 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'storeResult.dart';
+import 'description_fillieres/FilliereClass.dart';
 
 class Result extends StatelessWidget {
+
+  final FilliereClass filiere = new FilliereClass();
+
   @override
   Widget build(BuildContext context) {
     var result = Provider.of<StoreResult>(context);
 
-    Color gradientHome1 = Color(0xff82ccdd);
-    Color gradientHome2 = Color(0xff78e08f);
+    Color _currentBGColor1 = Color(0xff82ccdd);
+    Color _currentBGColor2 = Color(0xff0c2461);
 
     List<String> processResult() {
-      List<String> listresult = new List(2);
+      List<String> listresult = new List(4);
 
       switch (result.getResult()) {
         case 'CYB':
           {
             listresult[0] = 'Cyber sécurité';
             listresult[1] = './assets/images/cyber.jpg';
+            listresult[2] = filiere.getCyb().description;
+            listresult[3] = filiere.getCyb().link;
           }
           break;
         case 'DSIA':
           {
             listresult[0] = 'Data Science et IA';
             listresult[1] = './assets/images/datascience.jpg';
+            listresult[2] = filiere.getDsia().description;
+            listresult[3] = filiere.getDsia().link;
           }
           break;
         case 'INFO':
           {
             listresult[0] = 'Informatique';
             listresult[1] = './assets/images/INFO.jpg';
+            listresult[2] = filiere.getInfo().description;
+            listresult[3] = filiere.getInfo().link;
           }
           break;
         case 'SE':
           {
             listresult[0] = 'Systèmes embarqués';
             listresult[1] = './assets/images/SE.jpg';
+            listresult[2] = filiere.getSe().description;
+            listresult[3] = filiere.getSe().link;
           }
           break;
         case 'SEI':
           {
             listresult[0] = 'Système electroniques intélligents';
             listresult[1] = './assets/images/SEI.jpg';
+            listresult[2] = filiere.getSei().description;
+            listresult[3] = filiere.getSei().link;
           }
           break;
         case 'ENE':
           {
             listresult[0] = 'Energie';
             listresult[1] = './assets/images/ENE.jpg';
+            listresult[2] = filiere.getEn().description;
+            listresult[3] = filiere.getEn().link;
           }
           break;
         case 'GI':
           {
             listresult[0] = 'Génie industriel';
             listresult[1] = './assets/images/GI.jpg';
+            listresult[2] = filiere.getGi().description;
+            listresult[3] = filiere.getGi().link;
           }
           break;
         case 'BIO':
           {
             listresult[0] = 'Bio-technologies et E-santé';
             listresult[1] = './assets/images/BIO.jpg';
+            listresult[2] = filiere.getBio().description;
+            listresult[3] = filiere.getBio().link;
           }
           break;
         default:
@@ -73,9 +94,9 @@ class Result extends StatelessWidget {
     }
 
     Widget textResult(){
-      String filliereResult = processResult()[0];
+      String filliereResultTitle = processResult()[0];
       return Text(
-        filliereResult,
+        filliereResultTitle,
         style: TextStyle(
             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
       );
@@ -84,15 +105,17 @@ class Result extends StatelessWidget {
 
 
     Widget description() {
+      String filliereResultDescription = processResult()[2];
       return Container(
         padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
         child: Text(
-            'La filière forme des ingénieurs capables de répondre aux enjeux liés au changement climatique et à la transition énergétique par une transformation de l’offre (décarbonation du mix énergétique, utilisation accrue des énergies renouvelables…) et une maîtrise de la demande (sobriété et efficacité énergétique) dans leurs dimensions technologique au niveau économique et réglementaire avec une attention particulière aux outils numériques (objets connectés, données…, modélisation, simulation, optimisation) et à leur mise en œuvre à différentes échelles (bâtiment, quartier, ville, etc.).',
+          filliereResultDescription,
         style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
       );
     }
 
     Widget enApprendrePlus() {
+      String filliereResultLink = processResult()[3];
       return Container(
         padding: EdgeInsets.all(20.0),
         child: Row(
@@ -107,7 +130,10 @@ class Result extends StatelessWidget {
             ),
             FlatButton(
               child: Icon(Icons.arrow_forward, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                var url = filliereResultLink;
+                launch(url);
+              },
             ),
           ],
         ),
@@ -120,7 +146,7 @@ class Result extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors: [gradientHome1, gradientHome2],
+            colors: [_currentBGColor1, _currentBGColor2],
           ),
         ),
         child: SafeArea(
@@ -131,7 +157,7 @@ class Result extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(15.0),
                   child: Text(
-                    "Résultat",
+                    "Tu es fais pour ...",
                     style: TextStyle(fontSize: 25.0, color: Colors.white),
                   ),
                 ),
@@ -160,7 +186,7 @@ class Result extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: RaisedButton(
-                    child: Text("Recommencer",style: TextStyle(color: gradientHome1, fontWeight: FontWeight.bold),),
+                    child: Text("Recommencer",style: TextStyle(color: _currentBGColor2, fontWeight: FontWeight.bold),),
                     shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(18.0),
                     ),
