@@ -23,7 +23,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                          filliere: _filliereClass.getBio(),
+                          filiere: _filliereClass.getBio(),
                         )),
               );
             },
@@ -38,7 +38,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filliere: _filliereClass.getCyb(),
+                      filiere: _filliereClass.getCyb(),
                     )),
               );
             },
@@ -53,7 +53,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filliere: _filliereClass.getDsia(),
+                      filiere: _filliereClass.getDsia(),
                     )),
               );
             },
@@ -68,7 +68,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filliere: _filliereClass.getEn(),
+                      filiere: _filliereClass.getEn(),
                     )),
               );
             },
@@ -83,7 +83,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filliere: _filliereClass.getGi(),
+                      filiere: _filliereClass.getGi(),
                     )),
               );
             },
@@ -98,7 +98,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filliere: _filliereClass.getInfo(),
+                      filiere: _filliereClass.getInfo(),
                     )),
               );
             },
@@ -113,7 +113,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filliere: _filliereClass.getSe(),
+                      filiere: _filliereClass.getSe(),
                     )),
               );
             },
@@ -128,7 +128,7 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filliere: _filliereClass.getSei(),
+                      filiere: _filliereClass.getSei(),
                     )),
               );
             },

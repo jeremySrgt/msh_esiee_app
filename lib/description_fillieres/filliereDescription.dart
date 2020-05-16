@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:msh_esiee_app/description_fillieres/FilliereClass.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class FilliereDescription extends StatelessWidget{
+class FilliereDescription extends StatelessWidget {
+  final FilliereClass filiere;
 
-  final FilliereClass filliere;
-  FilliereDescription({this.filliere});
-
+  FilliereDescription({this.filiere});
 
   Color _currentBGColor1 = Color(0xff3fa3ba);
 
@@ -13,12 +13,41 @@ class FilliereDescription extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(filliere.titre),
+        title: Text(filiere.titre),
         backgroundColor: _currentBGColor1,
       ),
-      body: Center(child: Text(filliere.description)),
+      body: Container(
+        padding: EdgeInsets.all(25.0),
+        child: Column(
+          children: [
+            Expanded(
+                child: Text(
+              filiere.description,
+              style: TextStyle(fontSize: 17.0),
+              textAlign: TextAlign.justify,
+            )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'En apprendre plus',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.0),
+                ),
+                FlatButton(
+                  child: Icon(Icons.arrow_forward, color: Colors.black),
+                  onPressed: () {
+                      var url = filiere.link;
+                      launch(url);
+                    }
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
-
-
 }
