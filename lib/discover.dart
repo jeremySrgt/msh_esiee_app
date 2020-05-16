@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'description_fillieres/filliereDescription.dart';
 import 'package:msh_esiee_app/description_fillieres/FilliereClass.dart';
@@ -172,6 +173,22 @@ class DiscoverPage extends StatelessWidget {
               Expanded(
                 child: discover(context),
               ),
+              Container(
+                padding: EdgeInsets.all(12.0),
+                child: Card(
+                  child: ListTile(
+                    title: Text("Découvrir les filières en apprentissage"),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    onTap: () {
+                      var url = "https://www.esiee.fr/fr/formations/ingenieur-par-apprentissage";
+                      launch(url);
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              )
             ],
           ),
         ),
