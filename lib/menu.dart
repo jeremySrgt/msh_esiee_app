@@ -46,6 +46,10 @@ class Menu extends StatelessWidget {
                     ),
                   ),
                 ),
+                
+                Container(
+                  child: Image.asset("assets/images/Logo_ESIEE.png", scale: 1.8,),
+                ),
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
