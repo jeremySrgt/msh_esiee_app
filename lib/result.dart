@@ -108,24 +108,13 @@ class Result extends StatelessWidget {
 
     Widget description() {
       String filliereResultDescription = processResult()[2];
-
-      if(platform == TargetPlatform.android){
         return Container(
+          constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
           padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
           child: Text(
             filliereResultDescription,
             style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
         );
-      }
-      else{
-        return Container(
-          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-          child: Text(
-            filliereResultDescription,
-            style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
-        );
-      }
-
     }
 
     Widget enApprendrePlus() {
@@ -181,6 +170,7 @@ class Result extends StatelessWidget {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(20.0),
                     child: Image(
+                      width: 500,
                       image:
                           AssetImage(processResult()[1]),
                       fit: BoxFit.contain,
