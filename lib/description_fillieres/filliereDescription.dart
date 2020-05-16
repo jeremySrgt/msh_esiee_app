@@ -21,11 +21,14 @@ class FilliereDescription extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-                child: Text(
+                child: Container(
+                  constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
+                  child: Text(
               filiere.description,
               style: TextStyle(fontSize: 17.0),
               textAlign: TextAlign.justify,
-            )),
+            ),
+                )),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
