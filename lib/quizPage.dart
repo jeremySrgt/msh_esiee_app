@@ -4,34 +4,22 @@ import 'result.dart';
 import 'package:provider/provider.dart';
 import 'storeResult.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:msh_esiee_app/description_fillieres/FilliereClass.dart';
 
-class HomePage extends StatefulWidget {
+class QuizPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomePageState();
+    return _QuizPageState();
   }
 }
 
-class _HomePageState extends State<HomePage> {
+class _QuizPageState extends State<QuizPage> {
   List<Question> question = QuestionData().getQuestion();
   int actualQuestion = 0;
 
   SwiperController _controller = new SwiperController();
 
-  int _selectedIndex = 0;
-
-  FilliereClass _filliereClass = new FilliereClass();
-
-//  final Shader linearGradient = LinearGradient(
-//    colors: <Color>[Colors.pink, Colors.deepPurple],
-//  ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
-
   Color gradientHome1 = Color(0xff82ccdd);
   Color gradientHome2 = Color(0xff0c2461);
-
-  Color gradientDiscover1 = Color(0xfff6b93b);
-  Color gradientDiscover2 = Color(0xffeb2f06);
 
   Color _currentBGColor1 = Color(0xff82ccdd);
   Color _currentBGColor2 = Color(0xff0c2461);
@@ -62,11 +50,11 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         IconButton(
                           icon: new Icon(Icons.arrow_back_ios,
-                              color: Colors.grey),
+                              color: Colors.white),
                           onPressed: () => Navigator.of(context).pop(),
                         ),
                         Text(
-                          "Esiee Quiz",
+                          "Quiz de filières",
                           style: TextStyle(fontSize: 25.0, color: Colors.white),
                         ),
                       ],

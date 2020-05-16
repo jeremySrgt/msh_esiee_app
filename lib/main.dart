@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'homePage.dart';
+import 'quizPage.dart';
 import 'storeResult.dart';
 import 'menu.dart';
 

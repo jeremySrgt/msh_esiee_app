@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'homePage.dart';
+import 'quizPage.dart';
 import 'discover.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -8,6 +8,8 @@ class Menu extends StatelessWidget {
   Color _currentBGColor2 = Color(0xff0c2461);
 
 
+
+  //TODO S'AMUSER AVEC LES NOUVELLES ANIMATIONS DE FLUTTER NOTAMMENT AVEC LES TRANSITIONS DE PAGES
 
   _launchURL() async {
     var url = "https://www.esiee.fr/";
@@ -39,7 +41,7 @@ class Menu extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(15.0),
                     child: Text(
-                      "Esiee Quiz",
+                      "Esiee Paris",
                       style: TextStyle(fontSize: 25.0, color: Colors.white),
                     ),
                   ),
@@ -66,7 +68,7 @@ class Menu extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        HomePage()));
+                                        QuizPage()));
                           },
                         ),
                       ),
