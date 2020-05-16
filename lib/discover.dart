@@ -7,7 +7,6 @@ import 'package:msh_esiee_app/description_fillieres/FilliereClass.dart';
 class DiscoverPage extends StatelessWidget {
   final FilliereClass _filliereClass = new FilliereClass();
 
-
   Color _currentBGColor1 = Color(0xff82ccdd);
   Color _currentBGColor2 = Color(0xff0c2461);
 
@@ -39,8 +38,8 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filiere: _filliereClass.getCyb(),
-                    )),
+                          filiere: _filliereClass.getCyb(),
+                        )),
               );
             },
           ),
@@ -54,8 +53,8 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filiere: _filliereClass.getDsia(),
-                    )),
+                          filiere: _filliereClass.getDsia(),
+                        )),
               );
             },
           ),
@@ -69,8 +68,8 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filiere: _filliereClass.getEn(),
-                    )),
+                          filiere: _filliereClass.getEn(),
+                        )),
               );
             },
           ),
@@ -84,8 +83,8 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filiere: _filliereClass.getGi(),
-                    )),
+                          filiere: _filliereClass.getGi(),
+                        )),
               );
             },
           ),
@@ -99,8 +98,8 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filiere: _filliereClass.getInfo(),
-                    )),
+                          filiere: _filliereClass.getInfo(),
+                        )),
               );
             },
           ),
@@ -114,8 +113,8 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filiere: _filliereClass.getSe(),
-                    )),
+                          filiere: _filliereClass.getSe(),
+                        )),
               );
             },
           ),
@@ -129,8 +128,8 @@ class DiscoverPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => FilliereDescription(
-                      filiere: _filliereClass.getSei(),
-                    )),
+                          filiere: _filliereClass.getSei(),
+                        )),
               );
             },
           ),
@@ -141,6 +140,8 @@ class DiscoverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var platform = Theme.of(context).platform;
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -171,16 +172,21 @@ class DiscoverPage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: discover(context),
+                child: Container(
+                  constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
+                  child: discover(context),
+                ),
               ),
               Container(
+                constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
                 padding: EdgeInsets.all(12.0),
                 child: Card(
                   child: ListTile(
                     title: Text("Découvrir les filières en apprentissage"),
                     trailing: Icon(Icons.arrow_forward_ios),
                     onTap: () {
-                      var url = "https://www.esiee.fr/fr/formations/ingenieur-par-apprentissage";
+                      var url =
+                          "https://www.esiee.fr/fr/formations/ingenieur-par-apprentissage";
                       launch(url);
                     },
                   ),

@@ -22,17 +22,19 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+    var platform = Theme.of(context).platform;
+
+
     return Scaffold(
       body: Container(
-        child: AnimatedContainer(
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeInCubic,
+        child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [_currentBGColor1, _currentBGColor2])),
-//        color: Theme.of(context).primaryColor,
           child: SafeArea(
             child: Column(
               children: <Widget>[
@@ -40,8 +42,11 @@ class Menu extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: Container(
                     padding: EdgeInsets.all(15.0),
-                    child: Text(
+                    child: platform == TargetPlatform.android ? Text(
                       "Esiee Paris",
+                      style: TextStyle(fontSize: 25.0, color: Colors.white),
+                    ) : Text(
+                      "Esiee Paris Web Version",
                       style: TextStyle(fontSize: 25.0, color: Colors.white),
                     ),
                   ),

@@ -12,6 +12,8 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     var result = Provider.of<StoreResult>(context);
 
+    var platform = Theme.of(context).platform;
+
     Color _currentBGColor1 = Color(0xff82ccdd);
     Color _currentBGColor2 = Color(0xff0c2461);
 
@@ -106,12 +108,24 @@ class Result extends StatelessWidget {
 
     Widget description() {
       String filliereResultDescription = processResult()[2];
-      return Container(
-        padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
-        child: Text(
-          filliereResultDescription,
-        style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
-      );
+
+      if(platform == TargetPlatform.android){
+        return Container(
+          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          child: Text(
+            filliereResultDescription,
+            style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
+        );
+      }
+      else{
+        return Container(
+          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+          child: Text(
+            filliereResultDescription,
+            style: TextStyle(color: Colors.white, ), textAlign: TextAlign.justify,),
+        );
+      }
+
     }
 
     Widget enApprendrePlus() {
