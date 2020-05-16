@@ -18,9 +18,6 @@ class _QuizPageState extends State<QuizPage> {
 
   SwiperController _controller = new SwiperController();
 
-  Color gradientHome1 = Color(0xff82ccdd);
-  Color gradientHome2 = Color(0xff0c2461);
-
   Color _currentBGColor1 = Color(0xff82ccdd);
   Color _currentBGColor2 = Color(0xff0c2461);
 
@@ -30,42 +27,37 @@ class _QuizPageState extends State<QuizPage> {
 
     return Scaffold(
       body: Container(
-        child: AnimatedContainer(
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeInCubic,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [_currentBGColor1, _currentBGColor2])),
-//        color: Theme.of(context).primaryColor,
-          child: SafeArea(
-            child: Column(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    padding: EdgeInsets.all(15.0),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: new Icon(Icons.arrow_back_ios,
-                              color: Colors.white),
-                          onPressed: () => Navigator.of(context).pop(),
-                        ),
-                        Text(
-                          "Quiz de filières",
-                          style: TextStyle(fontSize: 25.0, color: Colors.white),
-                        ),
-                      ],
-                    ),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [_currentBGColor1, _currentBGColor2])),
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topLeft,
+                child: Container(
+                  padding: EdgeInsets.all(15.0),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: new Icon(Icons.arrow_back_ios,
+                            color: Colors.white),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                      Text(
+                        "Quiz de filières",
+                        style: TextStyle(fontSize: 25.0, color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
-                Expanded(
-                  child: quiz(result)
-                ),
-              ],
-            ),
+              ),
+              Expanded(
+                child: quiz(result)
+              ),
+            ],
           ),
         ),
       ),
