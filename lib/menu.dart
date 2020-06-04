@@ -22,13 +22,17 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     var platform = Theme.of(context).platform;
 
+    MediaQueryData queryData = MediaQuery.of(context);
+    var deviceWidth = queryData.size.width;
+    var deviceHeight = queryData.size.height;
+
     return Scaffold(
       body: Container(
         child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                   colors: [_currentBGColor1, _currentBGColor2])),
           child: SafeArea(
             child: Column(
@@ -48,13 +52,16 @@ class Menu extends StatelessWidget {
                             )),
                 ),
                 Container(
+                  constraints: BoxConstraints(maxHeight: 175),
                   child: Image.asset(
                     "assets/images/front_logo.png",
-                    scale: 3.5,
+                    height: deviceHeight/2,
+                    width: deviceWidth/2,
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
                   child: Text(
                       "Trop de fillieres et tu ne sais pas laquelle te conviendrait ? le Quiz Esiee est fait pour toi ! Joues et découvre ta fillière de prédilection",
                       style: TextStyle(fontSize: 17.0, color: Colors.white),
