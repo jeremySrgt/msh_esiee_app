@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Quizz Esiee',
+        title: 'Quiz Esiee',
         theme: new ThemeData(
           primaryColor: Colors.blue,
           accentColor: Colors.blueAccent,

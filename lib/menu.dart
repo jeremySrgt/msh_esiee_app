@@ -89,7 +89,7 @@ class Menu extends StatelessWidget {
                         minWidth: 300,
                         child: RaisedButton(
                           child: Text(
-                            'Découvre les fillières',
+                            'Découvrir les fillières',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w100),
                           ),
@@ -111,7 +111,7 @@ class Menu extends StatelessWidget {
                 ),
                 FlatButton(
                   child: Text(
-                    "Visite le site de l'Esiee",
+                    "Visite le site de ESIEE Paris",
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: _launchURL

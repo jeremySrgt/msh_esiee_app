@@ -7,7 +7,7 @@ class FilliereDescription extends StatelessWidget {
 
   FilliereDescription({this.filiere});
 
-  Color _currentBGColor1 = Color(0xff3fa3ba);
+  final Color _currentBGColor1 = Color(0xff3fa3ba);
 
   @override
   Widget build(BuildContext context) {
@@ -16,39 +16,52 @@ class FilliereDescription extends StatelessWidget {
         title: Text(filiere.titre),
         backgroundColor: _currentBGColor1,
       ),
-      body: Container(
-        padding: EdgeInsets.all(25.0),
-        child: Column(
-          children: [
-            Expanded(
-                child: Container(
-                  constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
-                  child: Text(
-              filiere.description,
-              style: TextStyle(fontSize: 17.0),
-              textAlign: TextAlign.justify,
-            ),
-                )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'En apprendre plus',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(25.0),
+          child: Column(
+            children: [
+              Container(
+                constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
+                child: Column(
+                  children: [
+                    Text("Description",style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),),
+                    SizedBox(height: 20.0,),
+                    Text(
+                      filiere.description,
+                      style: TextStyle(fontSize: 17.0),
+                      textAlign: TextAlign.justify,
+                    ),
+                    Divider(),
+                    SizedBox(height: 20.0,),
+                    Text("Exemple d'application",style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),),
+                    SizedBox(height: 20.0,),
+                    Text(filiere.exemple,
+                        style: TextStyle(fontSize: 17.0),
+                        textAlign: TextAlign.justify)
+                  ],
                 ),
-                FlatButton(
-                  child: Icon(Icons.arrow_forward, color: Colors.black),
-                  onPressed: () {
-                      var url = filiere.link;
-                      launch(url);
-                    }
-                ),
-              ],
-            ),
-          ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'En apprendre plus',
+                    style: TextStyle(
+                        color: _currentBGColor1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15.0),
+                  ),
+                  FlatButton(
+                      child: Icon(Icons.arrow_forward, color: _currentBGColor1),
+                      onPressed: () {
+                        var url = filiere.link;
+                        launch(url);
+                      }),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
