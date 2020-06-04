@@ -7,8 +7,6 @@ class Menu extends StatelessWidget {
   Color _currentBGColor1 = Color(0xff82ccdd);
   Color _currentBGColor2 = Color(0xff0c2461);
 
-
-
   //TODO S'AMUSER AVEC LES NOUVELLES ANIMATIONS DE FLUTTER NOTAMMENT AVEC LES TRANSITIONS DE PAGES
 
   _launchURL() async {
@@ -22,10 +20,7 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     var platform = Theme.of(context).platform;
-
 
     return Scaffold(
       body: Container(
@@ -41,19 +36,29 @@ class Menu extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: Container(
-                    padding: EdgeInsets.all(15.0),
-                    child: platform == TargetPlatform.android ? Text(
-                      "Esiee Paris",
-                      style: TextStyle(fontSize: 25.0, color: Colors.white),
-                    ) : Text(
-                      "Esiee Paris Web Version",
-                      style: TextStyle(fontSize: 25.0, color: Colors.white),
-                    ),
+                      padding: EdgeInsets.all(15.0),
+                      child: platform == TargetPlatform.android
+                          ? Image.asset(
+                              "assets/images/Logo_ESIEE.png",
+                              scale: 5.8,
+                            )
+                          : Image.asset(
+                              "assets/images/Logo_ESIEE.png",
+                              scale: 5.8,
+                            )),
+                ),
+                Container(
+                  child: Image.asset(
+                    "assets/images/front_logo.png",
+                    scale: 3.5,
                   ),
                 ),
-                
                 Container(
-                  child: Image.asset("assets/images/Logo_ESIEE.png", scale: 1.8,),
+                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  child: Text(
+                      "Trop de fillieres et tu ne sais pas laquelle te conviendrait ? le Quiz Esiee est fait pour toi ! Joues et découvre ta fillière de prédilection",
+                      style: TextStyle(fontSize: 17.0, color: Colors.white),
+                      textAlign: TextAlign.justify),
                 ),
                 Expanded(
                   child: Column(
@@ -110,12 +115,11 @@ class Menu extends StatelessWidget {
                   ),
                 ),
                 FlatButton(
-                  child: Text(
-                    "Visite le site de ESIEE Paris",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: _launchURL
-                ),
+                    child: Text(
+                      "Visite le site de ESIEE Paris",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: _launchURL),
                 SizedBox(
                   height: 15,
                 )
