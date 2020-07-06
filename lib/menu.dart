@@ -63,7 +63,7 @@ class Menu extends StatelessWidget {
                   padding: EdgeInsets.only(left: 15.0, right: 15.0),
                   constraints: BoxConstraints(minWidth: 100, maxWidth: 500),
                   child: Text(
-                      "Trop de fillieres et tu ne sais pas laquelle te conviendrait ? le Quiz Esiee est fait pour toi ! Joues et découvre ta fillière de prédilection",
+                      "Trop de filières et tu ne sais pas laquelle te conviendrait ? le Quiz Esiee est fait pour toi ! Joue et découvre ta filière de prédilection",
                       style: TextStyle(fontSize: 17.0, color: Colors.white),
                       textAlign: TextAlign.justify),
                 ),
@@ -101,7 +101,7 @@ class Menu extends StatelessWidget {
                         minWidth: 300,
                         child: RaisedButton(
                           child: Text(
-                            'Découvrir les fillières',
+                            'Découvrir les filières',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w100),
                           ),

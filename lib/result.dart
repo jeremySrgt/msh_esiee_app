@@ -55,7 +55,7 @@ class Result extends StatelessWidget {
           break;
         case 'SEI':
           {
-            listresult[0] = 'Système electroniques intélligents';
+            listresult[0] = 'Systèmes électroniques intelligents';
             listresult[1] = './assets/images/SEI.jpg';
             listresult[2] = filiere.getSei().description;
             listresult[3] = filiere.getSei().link;
@@ -163,9 +163,11 @@ class Result extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Container(
                   padding: EdgeInsets.all(15.0),
-                  child: Text(
-                    "Tu es fais pour ...",
-                    style: TextStyle(fontSize: 25.0, color: Colors.white),
+                  child: Center(
+                    child: Text(
+                      "Tu es fait(e) pour ...",
+                      style: TextStyle(fontSize: 25.0, color: Colors.white),
+                    ),
                   ),
                 ),
               ),

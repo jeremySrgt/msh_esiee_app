@@ -15,6 +15,7 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Question> question = QuestionData().getQuestion();
   int actualQuestion = 0;
+  int _numOfQuestion = 1;
 
   SwiperController _controller = new SwiperController();
 
@@ -57,6 +58,8 @@ class _QuizPageState extends State<QuizPage> {
               Expanded(
                 child: quiz(result)
               ),
+              Text(_numOfQuestion.toString() + "/24", style: TextStyle(fontSize: 18.0, color: Colors.white70),),
+
             ],
           ),
         ),
@@ -124,6 +127,7 @@ class _QuizPageState extends State<QuizPage> {
                   actualQuestion++;
                 });
               }
+              _numOfQuestion++;
             },
           ),
           FlatButton(
@@ -142,6 +146,7 @@ class _QuizPageState extends State<QuizPage> {
                   actualQuestion++;
                 });
               }
+              _numOfQuestion++;
             },
           )
         ],

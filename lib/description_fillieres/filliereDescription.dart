@@ -34,7 +34,7 @@ class FilliereDescription extends StatelessWidget {
                     ),
                     Divider(),
                     SizedBox(height: 20.0,),
-                    Text("Exemple d'application",style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),),
+                    Text("Exemples d'applications",style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),),
                     SizedBox(height: 20.0,),
                     Text(filiere.exemple,
                         style: TextStyle(fontSize: 17.0),

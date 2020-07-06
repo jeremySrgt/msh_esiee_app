@@ -121,7 +121,7 @@ class DiscoverPage extends StatelessWidget {
         ),
         Card(
           child: ListTile(
-            title: Text("Systèmes electroniques intélligents"),
+            title: Text("Systèmes électroniques intelligents"),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
               Navigator.push(
