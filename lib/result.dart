@@ -100,7 +100,8 @@ class Result extends StatelessWidget {
       return Text(
         filliereResultTitle,
         style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0,),
+        textAlign: TextAlign.center,
       );
     }
 
